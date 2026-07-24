@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model EventImage {
+  id        String   @id @default(uuid())
+  url       String
+  groupName String
+  timestamp Float
+  isVisible Boolean  @default(true)
+}
+
+model Certificate {
+  id             String   @id @default(uuid())
+  userName       String
+  userEmail      String
+  teamName       String?
+  designation    String?
+  groupName      String
+  imageUrl       String
+  certificateUrl String?
+  feedback       String?
+  showOnDisplay  Boolean  @default(false)
+  gradient       String?
+  createdAt      Float
+}
